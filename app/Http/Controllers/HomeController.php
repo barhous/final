@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {    
         $ambulances = DB::table('ambulances')->select('plateNumber')->where('status','=','inservice')->get();
+        $locations=DB::table('locations')->select('descr')->where('is_hospital','=',1)->get();
     
-        return view('home', ['ambulances' => $ambulances]);
+        return view('home', ['ambulances' => $ambulances,'locations'=>$locations]);  
     }
 }

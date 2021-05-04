@@ -32,7 +32,7 @@ html, body {
     display: table;
     cl
 #col {
-  column-count: 4;
+  column-count: 3;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

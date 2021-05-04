@@ -48,32 +48,29 @@
 		<div class="font-italic input-w" style="margin-top:3%;">
             <span class="font-bold m-0">Patient Details</span>
             <br>
-			<div id='col' style="margin-left:70px" style="margin-top:3%;">
+			<div id='col' style="margin-left:40px" style="margin-top:3%;">
 				
                 <span class="font-bold m-0">Patient Name</span>
 
-				<input type="text" style="margin-right:4%"class="font-italic" placeholder="Type Name here...">
+				<input type="text" style="margin-right:2%"class="font-italic" placeholder="Type Name here...">
 				
-            	<span class="font-bold m-0">Date of Birth</span>
-                <input type="text" style="margin-right:4%"class="font-italic" placeholder="Type Date Of Birth...">
+            	<span class="font-bold m-0">Nationality</span>
+                <input type="text" style="margin-right:2%"class="font-italic" placeholder="Type Nationality...">
+				
+				<span class="font-bold m-0">Age</span>
+                <input type="text" style="margin-right:0%"class="font-italic" placeholder="Type Age...">
               
-				  
-                <span class="font-bold m-0">Gender:</span>
-                <label for="male" style="margin-left:0px">Male
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="female">Female</label>
-				<input type="radio" id="female" name="gender" value="female">
-			
-               
-            
+				   
+      
 
-				</div>
+				
+		
+			<div class="font-italic input-w" style="float:right;margin-top:0px;">
+				<span class="font-bold m-0">Accompanied Person</span>
+				<input type="text" class="font-italic" placeholder="Type Accompanied Person...">
+			</div>
+			</div>
 		</div>
-		<div class="font-italic input-w" style="margin-top:3%;">
-			<span class="font-bold m-0">Accompanied Person</span>
-			<input type="text" class="font-italic" placeholder="">
-		</div>
-	
 		<div class="font-italic input-w" style="margin-top:3%;">
 			<span class="font-bold d-block">Ambulance Number</span>
 			@foreach($ambulances as $ambulance)
@@ -81,13 +78,46 @@
 			
 			@endforeach
 		</div>
+
+		
+
+
+
+		
 		<div class="font-italic input-w"style="margin-top:3%;">
 			<span class="font-bold m-0">Destination From</span>
-			<input type="text" class="font-italic" placeholder="" style="margin-left:1%">
-		</div>
+			
+				<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+					<select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+							onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+					  <option></option>
+					  @foreach($locations as $location)
+					  <option value=<?php echo $location->descr; ?>><?php echo $location->descr; ?></option>
+						@endforeach
+					</select>
+					<input type="text" name="displayValue" id="displayValue" 
+						   placeholder="hospitals" onfocus="this.select()"
+						   style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+					<input name="idValue" id="idValue" type="hidden">
+				  </div>
+				</div>
+		
 		<div class="font-italic input-w" style="margin-top:3%;">
 			<span class="font-bold m-0">Destination To</span>
-			<input type="text" class="font-italic" placeholder="" style="margin-left:2.5%;margin-top:20px;">
+				<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+					<select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+							onchange="document.getElementById('locationto').value=this.options[this.selectedIndex].text; document.getElementById('idto').value=this.options[this.selectedIndex].value;">
+					  <option></option>
+					  @foreach($locations as $location)
+					  <option value=<?php echo $location->descr; ?>><?php echo $location->descr; ?></option>
+						@endforeach
+					</select>
+					<input type="text" name="locationto" id="locationto" 
+						   placeholder="hospitals" onfocus="this.select()"
+						   style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+					<input name="idValue" id="idto" type="hidden">
+				  </div>
+				
 		</div>
 		<div class="font-italic input-w" style="margin-top:3%;">
 			<span class="font-bold m-0">Crew:</span>
